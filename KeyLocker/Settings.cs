@@ -18,6 +18,7 @@ namespace KeyLocker
         {
             hook = new Hook(this);
             InitializeComponent();
+            Hook.timer1.Interval = 10000;
         }
 
 
@@ -26,7 +27,8 @@ namespace KeyLocker
             this.Visible = false;
 
             this.ShowInTaskbar = false;
-            
+
+            Hook.timer1.Start();
             hook.ShowDialog(this);
         }
 
@@ -38,17 +40,20 @@ namespace KeyLocker
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            Hook.timer1.Interval = (int)(numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value);
+            if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000 < 10) numericUpDown3.Value = 10000;
+            Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000);
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            Hook.timer1.Interval = (int)(numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value);
+            if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000 < 10) numericUpDown3.Value = 10000;
+            Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000);
         }
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
-            Hook.timer1.Interval = (int)(numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value);
+            if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000 < 10) numericUpDown3.Value = 10000;
+            Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000);
         }
     }
 }

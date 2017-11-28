@@ -18,10 +18,11 @@ namespace KeyLocker
 {
     public partial class Hook : Form
     {
-
+        static bool enableHook = false;
         private Settings settings;
         public Hook()
         {
+            SetHook();
             InitializeComponent();
         }
 
@@ -77,23 +78,28 @@ namespace KeyLocker
 
         public static void UnHook()
         {
+            enableHook = false;
             UnhookWindowsHookEx(khook);
             UnhookWindowsHookEx(mhook);
         }
 
         public static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
         {
-            if (code >= 0 && (wParam == (IntPtr)WM_KEYDOWN))
+            if(!enableHook)
             {
-
+                timer1Restart();
+                return CallNextHookEx(khook, code, (int)wParam, lParam);
+            }
+            else if ( code >= 0 && (wParam == (IntPtr)WM_KEYDOWN))
+            {
+                
                 int vkCode = Marshal.ReadInt32(lParam);
-                switch(vkCode)
+
+                if (vkCode.ToString() == "27")
                 {
-                    case VK_ESC:
-                        UnHook();
-                        timer1Restart();
-                        break;
+                    UnHook();
                 }
+
                 return (IntPtr)1;
             }
             else
@@ -146,7 +152,7 @@ namespace KeyLocker
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            SetHook();
+            enableHook = true;
             timer1.Stop();
         }
 
