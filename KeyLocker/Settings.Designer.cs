@@ -29,48 +29,135 @@
         private void InitializeComponent()
         {
             this.buttonStart = new System.Windows.Forms.Button();
-            this.buttonStop = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.labelLocktime = new System.Windows.Forms.Label();
+            this.labelHour = new System.Windows.Forms.Label();
+            this.labelMinute = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.labelSecond = new System.Windows.Forms.Label();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonStart
             // 
-            this.buttonStart.Font = new System.Drawing.Font("Gulim", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.buttonStart.Location = new System.Drawing.Point(41, 269);
+            this.buttonStart.Font = new System.Drawing.Font("Gulim", 9F);
+            this.buttonStart.Location = new System.Drawing.Point(12, 179);
             this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(146, 49);
+            this.buttonStart.Size = new System.Drawing.Size(100, 20);
             this.buttonStart.TabIndex = 0;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
-            // buttonStop
+            // numericUpDown1
             // 
-            this.buttonStop.Font = new System.Drawing.Font("Gulim", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.buttonStop.Location = new System.Drawing.Point(193, 269);
-            this.buttonStop.Name = "buttonStop";
-            this.buttonStop.Size = new System.Drawing.Size(147, 49);
-            this.buttonStop.TabIndex = 1;
-            this.buttonStop.Text = "Stop";
-            this.buttonStop.UseVisualStyleBackColor = true;
-            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
+            this.numericUpDown1.Location = new System.Drawing.Point(22, 42);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(43, 21);
+            this.numericUpDown1.TabIndex = 2;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // labelLocktime
+            // 
+            this.labelLocktime.AutoSize = true;
+            this.labelLocktime.Location = new System.Drawing.Point(22, 20);
+            this.labelLocktime.Name = "labelLocktime";
+            this.labelLocktime.Size = new System.Drawing.Size(57, 12);
+            this.labelLocktime.TabIndex = 3;
+            this.labelLocktime.Text = "잠금 시간";
+            // 
+            // labelHour
+            // 
+            this.labelHour.AutoSize = true;
+            this.labelHour.Font = new System.Drawing.Font("Gulim", 12F);
+            this.labelHour.Location = new System.Drawing.Point(71, 47);
+            this.labelHour.Name = "labelHour";
+            this.labelHour.Size = new System.Drawing.Size(17, 16);
+            this.labelHour.TabIndex = 4;
+            this.labelHour.Text = "h";
+            // 
+            // labelMinute
+            // 
+            this.labelMinute.AutoSize = true;
+            this.labelMinute.Font = new System.Drawing.Font("Gulim", 12F);
+            this.labelMinute.Location = new System.Drawing.Point(71, 74);
+            this.labelMinute.Name = "labelMinute";
+            this.labelMinute.Size = new System.Drawing.Size(21, 16);
+            this.labelMinute.TabIndex = 6;
+            this.labelMinute.Text = "m";
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(22, 69);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(43, 21);
+            this.numericUpDown2.TabIndex = 5;
+            // 
+            // labelSecond
+            // 
+            this.labelSecond.AutoSize = true;
+            this.labelSecond.Font = new System.Drawing.Font("Gulim", 12F);
+            this.labelSecond.Location = new System.Drawing.Point(71, 101);
+            this.labelSecond.Name = "labelSecond";
+            this.labelSecond.Size = new System.Drawing.Size(17, 16);
+            this.labelSecond.TabIndex = 8;
+            this.labelSecond.Text = "s";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(22, 96);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(43, 21);
+            this.numericUpDown3.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 12);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "ESC 누르면 꺼져요";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 343);
-            this.Controls.Add(this.buttonStop);
+            this.ClientSize = new System.Drawing.Size(284, 210);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelSecond);
+            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.labelMinute);
+            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.labelHour);
+            this.Controls.Add(this.labelLocktime);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.buttonStart);
             this.Name = "Settings";
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Settings_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button buttonStart;
-        private System.Windows.Forms.Button buttonStop;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label labelLocktime;
+        private System.Windows.Forms.Label labelHour;
+        private System.Windows.Forms.Label labelMinute;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label labelSecond;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.Label label1;
     }
 }

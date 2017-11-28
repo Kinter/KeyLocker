@@ -36,6 +36,7 @@
             this.중지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.설정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.종료ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            Hook.timer1 = new System.Windows.Forms.Timer(this.components);
             this.notifyMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,40 +54,44 @@
             this.설정ToolStripMenuItem,
             this.종료ToolStripMenuItem});
             this.notifyMenuStrip.Name = "notifyMenuStrip";
-            this.notifyMenuStrip.Size = new System.Drawing.Size(153, 114);
+            this.notifyMenuStrip.Size = new System.Drawing.Size(99, 92);
             // 
             // 실행ToolStripMenuItem
             // 
             this.실행ToolStripMenuItem.Name = "실행ToolStripMenuItem";
-            this.실행ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.실행ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.실행ToolStripMenuItem.Text = "실행";
             this.실행ToolStripMenuItem.Click += new System.EventHandler(this.실행ToolStripMenuItem_Click);
             // 
             // 중지ToolStripMenuItem
             // 
             this.중지ToolStripMenuItem.Name = "중지ToolStripMenuItem";
-            this.중지ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.중지ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.중지ToolStripMenuItem.Text = "중지";
             // 
             // 설정ToolStripMenuItem
             // 
             this.설정ToolStripMenuItem.Name = "설정ToolStripMenuItem";
-            this.설정ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.설정ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.설정ToolStripMenuItem.Text = "설정";
             this.설정ToolStripMenuItem.Click += new System.EventHandler(this.설정ToolStripMenuItem_Click);
             // 
             // 종료ToolStripMenuItem
             // 
             this.종료ToolStripMenuItem.Name = "종료ToolStripMenuItem";
-            this.종료ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.종료ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.종료ToolStripMenuItem.Text = "종료";
             this.종료ToolStripMenuItem.Click += new System.EventHandler(this.종료ToolStripMenuItem_Click);
+            // 
+            // timer1
+            // 
+            Hook.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Hook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 270);
+            this.ClientSize = new System.Drawing.Size(308, 270);
             this.Name = "Hook";
             this.Text = "Hook";
             this.Load += new System.EventHandler(this.Hook_Load);
@@ -103,6 +108,7 @@
         private System.Windows.Forms.ToolStripMenuItem 중지ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 설정ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 종료ToolStripMenuItem;
+        public static System.Windows.Forms.Timer timer1;
     }
 }
 

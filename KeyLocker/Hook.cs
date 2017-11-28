@@ -11,7 +11,6 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
-using System.Windows;
 using System.Windows.Input;
 
 
@@ -84,13 +83,7 @@ namespace KeyLocker
 
         public static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
         {
-            if (code >= 0 && (wParam == (IntPtr)WM_KEYDOWN ||
-                wParam == (IntPtr)WM_LBUTTONDOWN ||
-                wParam == (IntPtr)WM_LBUTTONUP ||
-                wParam == (IntPtr)WM_MOUSEMOVE ||
-                wParam == (IntPtr)WM_MOUSEWHEEL ||
-                wParam == (IntPtr)WM_RBUTTONDOWN ||
-                wParam == (IntPtr)WM_RBUTTONUP))
+            if (code >= 0 && (wParam == (IntPtr)WM_KEYDOWN))
             {
 
                 int vkCode = Marshal.ReadInt32(lParam);
@@ -98,6 +91,7 @@ namespace KeyLocker
                 {
                     case VK_ESC:
                         UnHook();
+                        timer1Restart();
                         break;
                 }
                 return (IntPtr)1;
@@ -123,8 +117,7 @@ namespace KeyLocker
             this.notifyIcon1.Visible = true;
 
             notifyIcon1.ContextMenuStrip = notifyMenuStrip;
-
-            SetHook();
+            
         }
 
         private void 설정ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,7 +140,20 @@ namespace KeyLocker
 
         private void 실행ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            timer1.Start();
+            Console.WriteLine("timer start");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
             SetHook();
+            timer1.Stop();
+        }
+
+        private static void timer1Restart()
+        {
+            timer1.Stop();
+            timer1.Start();
         }
     }
 
