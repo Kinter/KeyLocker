@@ -18,6 +18,7 @@ namespace KeyLocker
 {
     public partial class Hook : Form
     {
+        public static int key;
         static bool enableHook = false;
         private Settings settings;
         public Hook()
@@ -85,14 +86,22 @@ namespace KeyLocker
 
         public static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
         {
-            if(!enableHook)
+            if (!enableHook)
             {
                 timer1Restart();
                 return CallNextHookEx(khook, code, (int)wParam, lParam);
             }
-            else if ( code >= 0 && (wParam == (IntPtr)WM_KEYDOWN))
+            else if (code >= 0 &&
+                (wParam == (IntPtr)WM_KEYDOWN) ||
+                (wParam == (IntPtr)WM_RBUTTONDOWN) ||
+                (wParam == (IntPtr)WM_MOUSEWHEEL) ||
+                (wParam == (IntPtr)WM_MOUSEMOVE) ||
+                (wParam == (IntPtr)WM_LBUTTONDOWN) ||
+                (wParam == (IntPtr)WM_LBUTTONUP) ||
+                (wParam == (IntPtr)WM_RBUTTONUP)
+                )
             {
-                
+
                 int vkCode = Marshal.ReadInt32(lParam);
 
                 if (vkCode.ToString() == "27")

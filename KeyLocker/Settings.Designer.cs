@@ -36,7 +36,8 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.labelSecond = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxUnlock = new System.Windows.Forms.TextBox();
+            this.labelUnlock = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -121,21 +122,30 @@
             0});
             this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
-            // label1
+            // textBoxUnlock
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 12);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "ESC 누르면 꺼져요";
+            this.textBoxUnlock.Location = new System.Drawing.Point(125, 133);
+            this.textBoxUnlock.Name = "textBoxUnlock";
+            this.textBoxUnlock.Size = new System.Drawing.Size(55, 21);
+            this.textBoxUnlock.TabIndex = 10;
+            this.textBoxUnlock.TextChanged += new System.EventHandler(this.textBoxUnlock_TextChanged);
+            // 
+            // labelUnlock
+            // 
+            this.labelUnlock.AutoSize = true;
+            this.labelUnlock.Location = new System.Drawing.Point(22, 136);
+            this.labelUnlock.Name = "labelUnlock";
+            this.labelUnlock.Size = new System.Drawing.Size(97, 12);
+            this.labelUnlock.TabIndex = 11;
+            this.labelUnlock.Text = "잠금 해제 단축키";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 210);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelUnlock);
+            this.Controls.Add(this.textBoxUnlock);
             this.Controls.Add(this.labelSecond);
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.labelMinute);
@@ -165,6 +175,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label labelSecond;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxUnlock;
+        private System.Windows.Forms.Label labelUnlock;
     }
 }

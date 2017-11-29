@@ -14,6 +14,7 @@ namespace KeyLocker
     {
         public int locktime = 0;
         Hook hook;
+        string key;
         public Settings()
         {
             hook = new Hook(this);
@@ -32,28 +33,34 @@ namespace KeyLocker
             hook.ShowDialog(this);
         }
 
+        private void Settings_Closing(object sender, EventArgs e) => hook.Close();
+
         private void Settings_Load(object sender, EventArgs e)
         {
             this.Visible = true;
             this.WindowState = FormWindowState.Normal;
         }
 
+
+
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000 < 10) numericUpDown3.Value = 10000;
-            Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000);
+            if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value) < 10) numericUpDown3.Value = 10;
+            Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value) * 1000);
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000 < 10) numericUpDown3.Value = 10000;
-            Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000);
+            if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value) < 10) numericUpDown3.Value = 10;
+            Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value) * 1000);
         }
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
-            if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000 < 10) numericUpDown3.Value = 10000;
-            Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value)*1000);
+            if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value) < 10) numericUpDown3.Value = 10;
+            Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value) * 1000);
         }
+
+        
     }
 }
