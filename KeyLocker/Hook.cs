@@ -104,7 +104,7 @@ namespace KeyLocker
 
                 int vkCode = Marshal.ReadInt32(lParam);
 
-                if (vkCode.ToString() == "27")
+                if (vkCode.ToString() == key.ToString())
                 {
                     UnHook();
                 }
