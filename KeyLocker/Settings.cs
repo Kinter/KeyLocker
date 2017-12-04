@@ -14,7 +14,7 @@ namespace KeyLocker
     {
         public int locktime = 0;
         Hook hook;
-        string key;
+
         public Settings()
         {
             hook = new Hook(this);
@@ -23,7 +23,7 @@ namespace KeyLocker
         }
 
 
-        private void buttonStart_Click(object sender, EventArgs e)
+        private void buttonStart_Click(object sender, EventArgs e)  
         {
             this.Visible = false;
 
@@ -33,6 +33,8 @@ namespace KeyLocker
             hook.ShowDialog(this);
         }
 
+        
+
         private void Settings_Closing(object sender, EventArgs e) => hook.Close();
 
         private void Settings_Load(object sender, EventArgs e)
@@ -41,8 +43,21 @@ namespace KeyLocker
             this.WindowState = FormWindowState.Normal;
         }
 
+        private void TextBoxUnlock_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            Hook.key = e.KeyValue;
 
-
+            if (e.KeyValue.ToString() == Keys.Escape.ToString())
+            {
+                this.TextBoxUnlock.Text = "ESC";
+            }
+            else if (e.KeyValue.ToString() == Keys.Capital.ToString())
+            {
+                this.TextBoxUnlock.Text = "Caps Lock";
+            }
+            else this.TextBoxUnlock.Text = e.KeyCode.ToString();
+        }
+        
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             if ((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value) < 10) numericUpDown3.Value = 10;
@@ -61,6 +76,6 @@ namespace KeyLocker
             Hook.timer1.Interval = (int)((numericUpDown1.Value * 3600 + numericUpDown2.Value * 60 + numericUpDown3.Value) * 1000);
         }
 
-        
+
     }
 }

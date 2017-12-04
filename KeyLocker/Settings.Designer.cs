@@ -36,7 +36,7 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.labelSecond = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.textBoxUnlock = new System.Windows.Forms.TextBox();
+            this.TextBoxUnlock = new System.Windows.Forms.TextBox();
             this.labelUnlock = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -45,7 +45,7 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.Font = new System.Drawing.Font("Gulim", 9F);
+            this.buttonStart.Font = new System.Drawing.Font("굴림", 9F);
             this.buttonStart.Location = new System.Drawing.Point(12, 179);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(100, 20);
@@ -74,7 +74,7 @@
             // labelHour
             // 
             this.labelHour.AutoSize = true;
-            this.labelHour.Font = new System.Drawing.Font("Gulim", 12F);
+            this.labelHour.Font = new System.Drawing.Font("굴림", 12F);
             this.labelHour.Location = new System.Drawing.Point(71, 47);
             this.labelHour.Name = "labelHour";
             this.labelHour.Size = new System.Drawing.Size(17, 16);
@@ -84,7 +84,7 @@
             // labelMinute
             // 
             this.labelMinute.AutoSize = true;
-            this.labelMinute.Font = new System.Drawing.Font("Gulim", 12F);
+            this.labelMinute.Font = new System.Drawing.Font("굴림", 12F);
             this.labelMinute.Location = new System.Drawing.Point(71, 74);
             this.labelMinute.Name = "labelMinute";
             this.labelMinute.Size = new System.Drawing.Size(21, 16);
@@ -102,7 +102,7 @@
             // labelSecond
             // 
             this.labelSecond.AutoSize = true;
-            this.labelSecond.Font = new System.Drawing.Font("Gulim", 12F);
+            this.labelSecond.Font = new System.Drawing.Font("굴림", 12F);
             this.labelSecond.Location = new System.Drawing.Point(71, 101);
             this.labelSecond.Name = "labelSecond";
             this.labelSecond.Size = new System.Drawing.Size(17, 16);
@@ -122,13 +122,16 @@
             0});
             this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
-            // textBoxUnlock
+            // TextBoxUnlock
             // 
-            this.textBoxUnlock.Location = new System.Drawing.Point(125, 133);
-            this.textBoxUnlock.Name = "textBoxUnlock";
-            this.textBoxUnlock.Size = new System.Drawing.Size(55, 21);
-            this.textBoxUnlock.TabIndex = 10;
-            this.textBoxUnlock.TextChanged += new System.EventHandler(this.textBoxUnlock_TextChanged);
+            this.TextBoxUnlock.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TextBoxUnlock.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.TextBoxUnlock.Location = new System.Drawing.Point(125, 133);
+            this.TextBoxUnlock.Name = "TextBoxUnlock";
+            this.TextBoxUnlock.ReadOnly = true;
+            this.TextBoxUnlock.Size = new System.Drawing.Size(107, 21);
+            this.TextBoxUnlock.TabIndex = 10;
+            this.TextBoxUnlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxUnlock_KeyDown);
             // 
             // labelUnlock
             // 
@@ -145,7 +148,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 210);
             this.Controls.Add(this.labelUnlock);
-            this.Controls.Add(this.textBoxUnlock);
+            this.Controls.Add(this.TextBoxUnlock);
             this.Controls.Add(this.labelSecond);
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.labelMinute);
@@ -175,7 +178,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label labelSecond;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.TextBox textBoxUnlock;
+        private System.Windows.Forms.TextBox TextBoxUnlock;
         private System.Windows.Forms.Label labelUnlock;
     }
 }
