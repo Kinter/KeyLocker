@@ -106,7 +106,8 @@ namespace KeyLocker
 
                 if (vkCode.ToString() == key.ToString())
                 {
-                    UnHook();
+                    enableHook = false;
+                    timer1Restart();
                 }
 
                 return (IntPtr)1;

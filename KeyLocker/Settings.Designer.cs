@@ -131,6 +131,7 @@
             this.TextBoxUnlock.ReadOnly = true;
             this.TextBoxUnlock.Size = new System.Drawing.Size(107, 21);
             this.TextBoxUnlock.TabIndex = 10;
+            this.TextBoxUnlock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxUnlock_KeyDown);
             // 
             // labelUnlock
             // 

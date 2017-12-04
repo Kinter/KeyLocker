@@ -43,12 +43,19 @@ namespace KeyLocker
             this.WindowState = FormWindowState.Normal;
         }
 
-        private void TextBoxUnlock_KeyDown(object sender, KeyEventArgs e)
+        private void TextBoxUnlock_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if(true)
-            {
+            Hook.key = e.KeyValue;
 
+            if (e.KeyValue.ToString() == Keys.Escape.ToString())
+            {
+                this.TextBoxUnlock.Text = "ESC";
             }
+            else if (e.KeyValue.ToString() == Keys.Capital.ToString())
+            {
+                this.TextBoxUnlock.Text = "Caps Lock";
+            }
+            else this.TextBoxUnlock.Text = e.KeyCode.ToString();
         }
         
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
